@@ -6,6 +6,16 @@ macro(make_extension NAME)
   make_library(${NAME} ${ARGV} REQUIRES unity boost SHARED)
 endmacro()
 #----------------------------
+make_extension(_canvas_streaming SOURCES
+  _canvas/streaming/extrema.cpp
+  _canvas/streaming/groupby.cpp
+  _canvas/streaming/heatmap.cpp
+  _canvas/streaming/histogram/continuous.cpp
+  _canvas/streaming/hyperloglog.cpp
+  _canvas/streaming/registration.cpp
+)
+
+#----------------------------
 make_extension(additional_sframe_utilities SOURCES additional_sframe_utilities.cpp)
 make_extension(grouped_sframe SOURCES grouped_sframe.cpp)
 make_extension(internal_demo SOURCES internal_demo.cpp)
