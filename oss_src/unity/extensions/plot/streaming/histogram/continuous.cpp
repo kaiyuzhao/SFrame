@@ -2,7 +2,7 @@
 #include <parallel/lambda_omp.hpp>
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 namespace histogram {
 

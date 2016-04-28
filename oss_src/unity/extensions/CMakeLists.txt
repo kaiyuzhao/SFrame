@@ -6,13 +6,13 @@ macro(make_extension NAME)
   make_library(${NAME} ${ARGV} REQUIRES unity boost SHARED)
 endmacro()
 #----------------------------
-make_extension(_canvas_streaming SOURCES
-  _canvas/streaming/extrema.cpp
-  _canvas/streaming/groupby.cpp
-  _canvas/streaming/heatmap.cpp
-  _canvas/streaming/histogram/continuous.cpp
-  _canvas/streaming/hyperloglog.cpp
-  _canvas/streaming/registration.cpp
+make_extension(streaming_aggregation SOURCES
+  plot/streaming/extrema.cpp
+  plot/streaming/groupby.cpp
+  plot/streaming/heatmap.cpp
+  plot/streaming/histogram/continuous.cpp
+  plot/streaming/hyperloglog.cpp
+  plot/streaming/registration.cpp
 )
 
 #----------------------------

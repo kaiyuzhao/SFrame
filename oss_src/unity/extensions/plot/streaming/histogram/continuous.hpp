@@ -5,7 +5,7 @@
 #include "../transformation.hpp"
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 namespace histogram {
 
@@ -18,7 +18,7 @@ struct continuous_bins : public toolkit_class_base {
   flex_list bins;
   double max;
   double min;
-  BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.histogram.continuous.bins")
+  BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.histogram.continuous.bins")
   REGISTER_PROPERTY(bins)
   REGISTER_PROPERTY(max)
   REGISTER_PROPERTY(min)
@@ -69,7 +69,7 @@ struct continuous_result : public toolkit_class_base {
   flexible_type get_max_value() const;
   void update(const flexible_type& value); // updates the result w/ value
 
-  BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.histogram.continuous.result")
+  BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.histogram.continuous.result")
   REGISTER_CLASS_MEMBER_FUNCTION(continuous_result::get_bins, "num_bins")
   REGISTER_GETTER("min", continuous_result::get_min_value)
   REGISTER_GETTER("max", continuous_result::get_max_value)
@@ -99,7 +99,7 @@ struct continuous_result : public toolkit_class_base {
  *     the histogram (result type, as shown below) representing the current
  *     distribution of values seen so far.
  */
-typedef ::graphlab::_canvas::streaming::transformation<gl_sarray, continuous_result, continuous_result, 1000000> continuous_parent;
+typedef ::graphlab::plot::streaming::transformation<gl_sarray, continuous_result, continuous_result, 1000000> continuous_parent;
 class continuous : public continuous_parent {
   public:
     virtual std::vector<continuous_result> split_input(size_t num_threads) override;
@@ -107,7 +107,7 @@ class continuous : public continuous_parent {
     virtual continuous_result get_current() override;
     virtual void init(const gl_sarray& source) override;
 
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.histogram.continuous")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.histogram.continuous")
     TRANSFORMATION_REGISTRATION(continuous)
     END_CLASS_MEMBER_REGISTRATION
 };

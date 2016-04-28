@@ -6,7 +6,7 @@
 #include "transformation.hpp"
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 class summary_stats {
@@ -132,7 +132,7 @@ class groupby : public transformation<gl_sframe, Result, Result, 1000000> {
 
 class groupby_summary_result : public groupby_result<summary_stats> {
   public:
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.groupby.summary.result")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.groupby.summary.result")
     REGISTER_GETTER("grouped", groupby_summary_result::get_grouped)
     REGISTER_GETTER("omitted", groupby_summary_result::get_omitted)
     END_CLASS_MEMBER_REGISTRATION
@@ -140,7 +140,7 @@ class groupby_summary_result : public groupby_result<summary_stats> {
 
 class groupby_summary : public groupby<groupby_summary_result> {
   public:
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.groupby.summary")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.groupby.summary")
     TRANSFORMATION_REGISTRATION(groupby_summary)
     END_CLASS_MEMBER_REGISTRATION
 };
@@ -148,7 +148,7 @@ class groupby_summary : public groupby<groupby_summary_result> {
 class groupby_quantile_result : public groupby_result<groupby_operators::quantile> {
   public:
     virtual void insert_category(const flexible_type& category) override;
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.groupby.quantile.result")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.groupby.quantile.result")
     REGISTER_GETTER("grouped", groupby_quantile_result::get_grouped)
     REGISTER_GETTER("omitted", groupby_quantile_result::get_omitted)
     END_CLASS_MEMBER_REGISTRATION
@@ -156,7 +156,7 @@ class groupby_quantile_result : public groupby_result<groupby_operators::quantil
 
 class groupby_quantile : public groupby<groupby_quantile_result> {
   public:
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.groupby.quantile")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.groupby.quantile")
     TRANSFORMATION_REGISTRATION(groupby_quantile)
     END_CLASS_MEMBER_REGISTRATION
 };

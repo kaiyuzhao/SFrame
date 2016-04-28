@@ -17,7 +17,7 @@
 #include "hyperloglog.hpp"
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 /**
@@ -35,7 +35,7 @@ namespace streaming {
  * \code
  * import graphlab
  * from math import ceil, log
- * hll = graphlab.extensions._canvas.streaming.hyperloglog()
+ * hll = graphlab.extensions.plot.streaming.hyperloglog()
  * hll.init(graphlab.SArray( [ceil(log(x)) for x in xrange(1,10000000)] ))
  * while not hll.eof():
  *  print '{0:.0f} unique items'.format(hll.get())

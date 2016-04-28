@@ -2,7 +2,7 @@
 #include <unity/lib/toolkit_class_macros.hpp>
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 class extrema : public toolkit_class_base {
@@ -17,7 +17,7 @@ class extrema : public toolkit_class_base {
     flexible_type get_max() const;
     flexible_type get_min() const;
 
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.extrema.1d")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.extrema.1d")
     REGISTER_GETTER("max", extrema::get_max)
     REGISTER_GETTER("min", extrema::get_min)
     END_CLASS_MEMBER_REGISTRATION
@@ -28,7 +28,7 @@ struct bounding_box : public toolkit_class_base {
   extrema y;
   bool update(const bounding_box& value);
 
-  BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.extrema.2d")
+  BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.extrema.2d")
   REGISTER_PROPERTY(x)
   REGISTER_PROPERTY(y)
   END_CLASS_MEMBER_REGISTRATION

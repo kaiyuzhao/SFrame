@@ -4,7 +4,7 @@
 #include <unity/lib/gl_sarray.hpp>
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 class hyperloglog : public toolkit_class_base {
@@ -21,7 +21,7 @@ class hyperloglog : public toolkit_class_base {
     double error_bound();
     double get();
 
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.hyperloglog")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.hyperloglog")
     REGISTER_CLASS_MEMBER_FUNCTION(hyperloglog::eof)
     REGISTER_CLASS_MEMBER_FUNCTION(hyperloglog::get)
     REGISTER_CLASS_MEMBER_FUNCTION(hyperloglog::error_bound)

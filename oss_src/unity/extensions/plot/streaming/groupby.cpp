@@ -1,7 +1,7 @@
 #include "groupby.hpp"
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 void summary_stats::add_element_simple(const flexible_type& value) {

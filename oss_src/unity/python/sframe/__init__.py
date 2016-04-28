@@ -28,6 +28,8 @@ from .version_info import __VERSION__, version, build_number
 from .connect import _get_metric_tracker
 from . import visualization
 
+from . import plot
+
 from .data_structures.sgraph import Vertex, Edge
 from .data_structures.sgraph import SGraph
 from .data_structures.sframe import SFrame

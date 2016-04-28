@@ -1,7 +1,7 @@
 #include "extrema.hpp"
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 flexible_type extrema::get_max() const {

@@ -7,7 +7,7 @@
 #include <set>
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 
@@ -87,7 +87,7 @@ class sample : public toolkit_class_base {
 
 class sarray_sample : public sample<gl_sarray> {
   public:
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.sarray_sample")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.sarray_sample")
     REGISTER_CLASS_MEMBER_FUNCTION(sarray_sample::eof)
     REGISTER_CLASS_MEMBER_FUNCTION(sarray_sample::get)
     REGISTER_CLASS_MEMBER_FUNCTION(sarray_sample::init, "source")
@@ -97,7 +97,7 @@ class sarray_sample : public sample<gl_sarray> {
 
 class sframe_sample : public sample<gl_sframe> {
   public:
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.sframe_sample")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.sframe_sample")
     REGISTER_CLASS_MEMBER_FUNCTION(sframe_sample::eof)
     REGISTER_CLASS_MEMBER_FUNCTION(sframe_sample::get)
     REGISTER_CLASS_MEMBER_FUNCTION(sframe_sample::init, "source")

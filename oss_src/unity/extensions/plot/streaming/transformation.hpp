@@ -12,7 +12,7 @@
     REGISTER_GETTER("rows_processed", TRANSFORMER::get_rows_processed) \
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 template<typename InputIterable,

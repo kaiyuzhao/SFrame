@@ -6,7 +6,7 @@
 #include "extrema.hpp"
 
 namespace graphlab {
-namespace _canvas {
+namespace plot {
 namespace streaming {
 
 /*
@@ -46,7 +46,7 @@ class heatmap : public toolkit_class_base {
       bounding_box bin_extrema;
       flex_int get_num_bins() const;
 
-      BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.heatmap.result")
+      BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.heatmap.result")
       REGISTER_PROPERTY(bins)
       REGISTER_PROPERTY(extrema)
       REGISTER_PROPERTY(bin_extrema)
@@ -70,7 +70,7 @@ class heatmap : public toolkit_class_base {
     bool eof() const;
     flex_int get_rows_processed() const;
 
-    BEGIN_CLASS_MEMBER_REGISTRATION("_canvas.streaming.heatmap")
+    BEGIN_CLASS_MEMBER_REGISTRATION("plot.streaming.heatmap")
     REGISTER_CLASS_MEMBER_FUNCTION(heatmap::eof)
     REGISTER_CLASS_MEMBER_FUNCTION(heatmap::get)
     REGISTER_CLASS_MEMBER_FUNCTION(heatmap::init, "x", "y", "num_bins", "batch_size")
