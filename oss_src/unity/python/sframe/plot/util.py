@@ -26,8 +26,8 @@ def positive_to_one(arr):
     def convert(x):
         if x > 0:
             return 1
-        return float('nan')
-    return map(lambda x: positive_to_one(x), arr )
+        return 0
+    return map(lambda x: convert(x), arr )
 
 
 def padding(arr, padsize):

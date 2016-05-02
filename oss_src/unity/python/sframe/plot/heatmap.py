@@ -35,7 +35,7 @@ def heatmap(sframe, x, y, num_bins = 80, numTicks = 6, scatterMode=False, psize 
     if scatterMode:
         from util import positive_to_one
         from util import padding
-        arr = apply(positive_to_one, arr)
+        arr = map(positive_to_one, arr)
         arr = padding(arr, psize)
         colormap = plt.cm.binary
 
