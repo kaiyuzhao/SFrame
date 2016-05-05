@@ -43,5 +43,29 @@ def padding(arr, padsize):
                     for j in range(padsize * 2 + 1):
                         curr_p = p-padsize+i
                         curr_q = q-padsize+j
-                        arr[curr_p][curr_q] = 2
+                        dist = (curr_p - p) * (curr_p - p) + (curr_q - q) * (curr_q - q)
+                        if dist < (padsize - 1) * (padsize-1):
+                            arr[curr_p][curr_q] = 2
     return map(positive_to_one, arr)
+
+def alpha_blending(arr, xmin, xmax, ymin, ymax, color):
+    '''
+    padding a sparse array of shape (n, n) with value of only counts
+    '''
+    x, y, colors = ([] for i in range(3))
+    r, g, b, a = color
+    bin_num = len(arr)
+
+    xpos = linspace(xmin, xmax, bin_num + 1)
+    ypos = linspace(ymin, ymax, bin_num + 1)
+
+    for p, row in enumerate(arr):
+        for q, column in enumerate(row):
+            cnt = arr[p][q]
+            if cnt > 0:
+                xval = 0.5 * (xpos[p] + xpos[p+1])
+                yval = 0.5 * (ypos[q] + ypos[q+1])
+                x.append(xval)
+                y.append(yval)
+                colors.append((r,g,b,1-pow((1-a),cnt)))
+    return (x, y, colors)
