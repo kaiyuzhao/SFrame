@@ -59,11 +59,9 @@ def heatmap(sframe, x, y, num_bins = 80, dato_style=True, scale=None, **kwargs):
             data = pixelization.get()
 
     arr = data.bins
-    # transpose
-    arr = map(list, zip(*arr))
-
-    # flip upside down
     arr.reverse()
+    arr = map(list, zip(*arr))
+    map(lambda x: x.reverse(), arr)
     colormap = plt.cm.YlGnBu
     im = plt.imshow(arr, cmap=colormap, norm= scale, interpolation='nearest', origin='upper')
 

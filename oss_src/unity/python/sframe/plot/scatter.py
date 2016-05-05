@@ -24,7 +24,7 @@ def scatterplot(sframe, x, y, resolution = None, color = (0.0, 0.78, 0.79, .5), 
     if sframe[y].dtype() is not float and sframe[y].dtype() is not int:
         raise ValueError, 'column x should be numeric, {} is detected'.format(sframe[y].dtype())
 
-    if resolution <= 0:
+    if resolution is not None and resolution <= 0:
         raise ValueError, 'Resolution must be a positive number, none or infinity, instead you used {}.'.format(resolution)
 
     fig = plt.figure()
@@ -90,6 +90,7 @@ def scatterplot(sframe, x, y, resolution = None, color = (0.0, 0.78, 0.79, .5), 
                 data = pixelization.get()
 
         arr = data.bins
+        map(lambda x: x.reverse(), arr)
         extrema = data.extrema
         xval, yval, colors = alpha_blending(arr, extrema.x.min, extrema.x.max, extrema.y.min, extrema.y.max, color)
         plt.scatter(xval, yval, color=colors, **kwargs)
